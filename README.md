@@ -1,19 +1,25 @@
 # OSRS-Price-Predictions-for-Items-with-High-Trade-Volume
-ECO481 ~ ML Project: Price Prediction for Runes in OSRS
+ML Project: Price Prediction for Runes in OSRS
+
+For context, OSRS is Old School Runescape, which is a large MMORPG (Massibe Multiplayer Online Role-Playing Game) with an equally large virtual market, where players are able to trade gold for items from other players.
+
+There was a recent update, where the developers wanted to introduce a new prayer book (new benefits to gameplay), which was unprecedented. Initial reports from the playerbase suggested that items relating to prayer training (bones being the most common) as going up significantly in price despite it being a heavily botted item (botted meaning that there are illegal bot-players being used to drive up the supply in the market).
+
+Given this change, I was interested if the market for prayer items was subject to the EMH, or if I could actually predict the prices of these specific goods.
+
 # Current Status of the Project
 
-This project is currently in its early stages, I have yet to implement the Random Forest method (nowcasting). For the time being, it includes the data collection code,
-the merge csv file code, and the final csv dataset, that includes the prices over a (roughly) 90 hour period.
+This project is currently finished its first iteration, having done a wide variety of ML predictive models for both regression and classification problems.
 
 # Automated Rune Price Scraping.ipynb, df_concat.ipynb, rune_prices_merged.csv
 
-Uses the api provided by the OSRS team to collect prices in 5 minute intervals, convert the information into dataframe objects, and then export as csv files. This was not used in the latest iteration of the prediction models, as we were interested in predicting bone prices (as there had been a recent update that caused a sudden shock in the prices, which we wanted to see if we could predict accurately in both the present and future periods).
+Uses the API provided by the OSRS team to collect prices in 5 minute intervals, convert the information into dataframe objects, and then export as csv files. This was not used in the latest iteration of the prediction models, as we were interested in predicting bone prices (as there had been a recent update that caused a sudden shock in the prices, which we wanted to see if we could predict accurately in both the present and future periods).
 
 The same holds for the python file where we concate the dataframes, and the csv output.
 
 # Reddit Comment Web Scraping.ipynb, text_df.csv
 
-Using the api provided by Reddit, I was able to scrape the comments, and replies to comments on the official developer thread discussing the update relating to the prayer book that the developers wanted to introduce. We were able to extract all of the comments and their associated user id and upvotes. This was then converted into a csv file (text_df.csv), which had 2261 separate observations.
+Using the API provided by Reddit, I was able to scrape the comments, and replies to comments on the official developer thread discussing the update relating to the prayer book that the developers wanted to introduce. We were able to extract all of the comments and their associated user id and upvotes. This was then converted into a csv file (text_df.csv), which had 2261 separate observations.
 
 # OSRS Update Sentiment Analysis.ipynb
 The first step taken was to preprocess the comments, which was accomplished by removing common stopwords, abbreviations of phrases, and punctuations. With the comments properly cleaned we moved on to topic modeling.
